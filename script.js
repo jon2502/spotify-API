@@ -4,6 +4,7 @@ const client_secret = 'INSERT CLIENT SECRET';
 const api_token_url = 'https://accounts.spotify.com/api/token';
 const playlist_ulr = 'https://api.spotify.com/v1/playlists/'
 
+//exapmle of playlists. you can provide your own if you want.
 const playlistIDs = [
 '0RCNxflJNClLX9ge3I1jzC',
 '7DNPpE2g0V8rXqbieGN3fZ',
@@ -15,11 +16,12 @@ const playlistIDs = [
 '37i9dQZF1DZ06evO4i9JF6',
 '37i9dQZF1DZ06evO3hJmi5'
 ]
+
 //HTML content
 const selector = document.getElementById('playList_selector')
 const container = document.getElementById('container')
 
-
+//generates token
 async function fecthAPI(){
   const result = await fetch(api_token_url,{
     method: 'POST',
@@ -33,6 +35,7 @@ async function fecthAPI(){
   return data.access_token; 
 }
 
+//gets all the playlists and create list
 async function getPlaylists(){
   const token = await fecthAPI();
   for ( object of playlistIDs){
@@ -57,6 +60,7 @@ async function getPlaylists(){
 }
 getPlaylists()
 
+//code for creating list
 async function generatelist(v){
   container.innerHTML = ``
   const token = await fecthAPI();
@@ -94,6 +98,7 @@ async function generatelist(v){
   }))
 }
 
+//code to make sure only one audio track can run at a time.
 function audioFunction(sounds, currentSound){
   sounds.forEach(sound=> {
     /*checks if curent 'sound' that is trying to play is 
