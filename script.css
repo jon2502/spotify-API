@@ -1,0 +1,27 @@
+:root{
+    --display: flex;
+    --align: center;
+    --direction: row;
+    --gap: 0.5vw;
+}
+.display {
+    display: flex;
+    flex-direction: var(--direction);
+    align-items: var(--align);
+    margin-bottom: 0.5vh;
+    gap: var(--gap);
+}
+.artisNames {
+    display: var(--display);
+}
+.playlistIMG{
+    width: 25vw;
+}
+
+@media screen and (max-width: 720px) {
+    :root{
+        --align: flex-start;
+        --direction: column;
+        --gap: 0
+    }
+}
