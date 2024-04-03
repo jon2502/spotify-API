@@ -86,9 +86,9 @@ async function generatelist(v){
         <audio controls class="audio">
           <source src="${object.track.preview_url}" type="audio/mpeg">
         </audio>
-        <h5 class="trackName">Title: ${object.track.name}</h5>
-        <h5>Artists: ${object.track.artists.map((info) => `${info.name}, `).join('').slice(0, -2)}</h5>
-        <h5>Album: ${object.track.album.name}</h5>
+        <h5 class="trackinfo">Title: ${object.track.name}</h5>
+        <h5 class="trackinfo">Artists: ${object.track.artists.map((info) => `${info.name}, `).join('').slice(0, -2)}</h5>
+        <h5 class="trackinfo">Album: ${object.track.album.name}</h5>
       `
       container.appendChild(preview)
   }
